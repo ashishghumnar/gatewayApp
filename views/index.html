@@ -9,10 +9,21 @@
     <title>
         MEAN - Records
     </title>
+
+    <style>
+        .onlight {
+            fill: red;
+        }
+    </style>
 </head>
 <body>
 <div class="container" ng-controller="appCtrl as ctrl">
     <h1>Gateway app</h1>
+    <span>{{ctrl.deviceStatus}}</span>
+
+    <svg width="400px"   height="400px">
+        <circle r="30" fill="grey" cx="30" cy="40" ng-class="{'onlight': ctrl.deviceStatus == 'ON'}"></circle>
+    </svg>
 </div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -21,6 +32,8 @@
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.2/socket.io.js"></script>
+
 <script src="app.js"></script>
 </body>
 </html>
